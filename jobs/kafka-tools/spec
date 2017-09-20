@@ -1,0 +1,21 @@
+---
+name: kafka-tools
+
+description: Provides several useful preconfigured Kafka utilities.
+
+templates:
+  kafka-topics: bin/kafka-topics.sh
+  kafka-console-producer: bin/kafka-console-producer.sh
+  kafka-console-consumer: bin/kafka-console-consumer.sh
+  # todo https://kafka.apache.org/documentation/#basic_ops_consumer_lag
+
+consumes:
+- name: zookeeper
+  type: zookeeper
+- name: broker
+  type: kafka-broker
+
+packages:
+- kafka
+
+properties: {}

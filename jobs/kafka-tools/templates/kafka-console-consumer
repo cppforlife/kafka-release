@@ -1,0 +1,12 @@
+#!/bin/bash
+
+set -e
+
+source /var/vcap/packages/openjdk-1.8/bosh/runtime.env
+
+<% broker = link("broker") %>
+
+# todo use .address
+/var/vcap/packages/kafka/bin/kafka-console-consumer.sh \
+  --bootstrap-server "<%= "#{broker.instances.first.address}:#{broker.p("port")}" %>" \
+  $@

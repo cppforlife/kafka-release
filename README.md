@@ -1,0 +1,14 @@
+# kafka-release
+
+- https://kafka.apache.org/quickstart
+
+## TODO
+
+- smoke tests
+  - https://developer.rackspace.com/blog/Apache-Kafka-Client-Benchmarks/
+  - https://github.com/confluentinc/confluent-kafka-go
+- fs tweaking
+  - https://kafka.apache.org/documentation/#ext4
+- secure connection
+  - https://kafka.apache.org/documentation/#security_ssl
+  - https://www.confluent.io/blog/apache-kafka-security-authorization-authentication-encryption/

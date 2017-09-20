@@ -1,0 +1,11 @@
+#!/bin/bash
+
+set -e
+
+source /var/vcap/packages/openjdk-1.8/bosh/runtime.env
+
+<% broker = link("broker") %>
+
+/var/vcap/packages/kafka/bin/kafka-console-producer.sh \
+  --broker-list "<%= broker.instances.map { |i| "#{i.address}:#{broker.p("port")}" }.join(",") %>" \
+  $@

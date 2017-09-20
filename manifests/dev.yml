@@ -1,0 +1,7 @@
+- type: replace
+  path: /releases/name=kafka/url
+  value: file://.
+
+- type: replace
+  path: /releases/name=kafka/version
+  value: create

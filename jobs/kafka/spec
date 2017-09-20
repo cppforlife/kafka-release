@@ -1,0 +1,27 @@
+---
+name: kafka
+
+templates:
+  ctl: bin/ctl
+  pre-start: bin/pre-start
+  log4j.properties: config/log4j.properties
+  server.properties: config/server.properties
+
+consumes:
+- name: zookeeper
+  type: zookeeper
+
+provides:
+- name: broker
+  type: kafka-broker
+  properties:
+  - port
+
+packages:
+- openjdk-1.8
+- kafka
+
+properties:
+  port:
+    description: "Listener port"
+    default: 9092

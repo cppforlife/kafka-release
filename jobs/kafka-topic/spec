@@ -1,0 +1,16 @@
+---
+name: kafka-topic
+
+templates:
+  post-start: bin/post-start
+
+consumes:
+- name: zookeeper
+  type: zookeeper
+
+packages:
+- kafka
+
+properties:
+  name:
+    description: Topic name

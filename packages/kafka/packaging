@@ -1,0 +1,5 @@
+set -e
+
+tar xzvf kafka_*.tgz
+rm kafka_*.tgz
+cp -a kafka*/* $BOSH_INSTALL_TARGET/

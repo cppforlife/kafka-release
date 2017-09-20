@@ -1,0 +1,52 @@
+---
+name: kafka2
+
+releases:
+- name: kafka
+  version: 0.0.1
+  url: git+https://github.com/cppforlife/kafka-release
+
+stemcells:
+- alias: default
+  os: ubuntu-trusty
+  version: latest
+
+update:
+  canaries: 2
+  max_in_flight: 1
+  canary_watch_time: 5000-60000
+  update_watch_time: 5000-60000
+
+instance_groups:
+- name: kafka
+  azs: [z1, z2, z3]
+  instances: 3
+  jobs:
+  - name: kafka
+    release: kafka
+    consumes:
+      zookeeper: {from: conn, deployment: zookeeper}
+    properties: {}
+  - name: kafka-tools
+    release: kafka
+    consumes:
+      zookeeper: {from: conn, deployment: zookeeper}
+    properties: {}
+  vm_type: default
+  stemcell: default
+  persistent_disk: 10240
+  networks:
+  - name: default
+
+# - name: smoke-tests
+#   azs: [z1]
+#   lifecycle: errand
+#   instances: 1
+#   jobs:
+#   - name: smoke-tests
+#     release: kafka
+#     properties: {}
+#   vm_type: default
+#   stemcell: default
+#   networks:
+#   - name: default
