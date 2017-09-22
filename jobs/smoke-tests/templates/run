@@ -1,0 +1,16 @@
+#!/bin/bash
+
+<%= raise "'smoke-tests' job must be colocated with 'kafka-tools' job" unless spec.job.templates.map(&:name).include?("kafka-tools") %>
+
+set -e
+
+echo "Creating new topic"
+/var/vcap/jobs/kafka-tools/bin/kafka-topics.sh \
+  --create --topic smoke-tests --if-not-exists \
+  --partitions 1 --replication-factor 1
+
+echo "Producing messages"
+echo "test1\ntest2" | /var/vcap/jobs/kafka-tools/bin/kafka-console-producer.sh --topic smoke-tests
+
+echo "Consuming messages"
+/var/vcap/jobs/kafka-tools/bin/kafka-console-consumer.sh --topic smoke-tests --from-beginning --max-messages 2 --timeout-ms 10000 | grep test2

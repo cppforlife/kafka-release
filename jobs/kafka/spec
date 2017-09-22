@@ -2,8 +2,8 @@
 name: kafka
 
 templates:
-  ctl: bin/ctl
-  pre-start: bin/pre-start
+  bpm.yml: config/bpm.yml
+  start: bin/start
   log4j.properties: config/log4j.properties
   server.properties: config/server.properties
 
@@ -18,10 +18,13 @@ provides:
   - port
 
 packages:
-- openjdk-1.8
 - kafka
+- openjdk-1.8
 
 properties:
   port:
     description: "Listener port"
     default: 9092
+  heap_opts:
+    description: "Heap options"
+    default: "-Xmx1G -Xms1G"

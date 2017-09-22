@@ -1,0 +1,9 @@
+---
+name: smoke-tests
+
+templates:
+  run: bin/run
+
+packages: []
+
+properties: {}

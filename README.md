@@ -7,6 +7,8 @@
 - smoke tests
   - https://developer.rackspace.com/blog/Apache-Kafka-Client-Benchmarks/
   - https://github.com/confluentinc/confluent-kafka-go
+- perf tests
+  - https://db-blog.web.cern.ch/blog/prasanth-kothuri/2016-10-benchmarking-apache-kafka-openstack-vms
 - fs tweaking
   - https://kafka.apache.org/documentation/#ext4
 - secure connection
