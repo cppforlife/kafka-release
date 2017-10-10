@@ -1,0 +1,22 @@
+---
+name: create-user
+
+templates:
+  run: bin/run
+
+consumes:
+- name: zookeeper
+  type: zookeeper
+
+packages:
+- kafka
+- openjdk-1.8
+
+properties:
+  user:
+    description: "User as specified via CN"
+  topic:
+    description: "Topic for authorization"
+  consumer:
+    description: "Consumer permissions"
+    default: true

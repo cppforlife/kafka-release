@@ -1,0 +1,27 @@
+---
+name: create-topic
+
+templates:
+  run: bin/run
+
+consumes:
+- name: zookeeper
+  type: zookeeper
+
+provides:
+- name: topic
+  type: kafka-topic
+
+packages:
+- kafka
+- openjdk-1.8
+
+properties:
+  name:
+    description: Topic name
+  partitions:
+    description: Number of partitions
+    default: 1
+  replication_factor:
+    description: Replication factor
+    default: 1

@@ -1,0 +1,46 @@
+---
+name: kafka-topic
+
+releases:
+- name: kafka
+  version: 0.0.2
+  url: git+https://github.com/cppforlife/kafka-release
+
+stemcells:
+- alias: default
+  os: ubuntu-trusty
+  version: latest
+
+update:
+  canaries: 2
+  max_in_flight: 1
+  canary_watch_time: 5000-60000
+  update_watch_time: 5000-60000
+
+instance_groups:
+- name: topic
+  azs: [z1, z2, z3]
+  instances: 1
+  jobs:
+  - name: create-topic
+    release: kafka
+    consumes:
+      zookeeper: {from: conn, deployment: zookeeper}
+    provides:
+      topic: {shared: true}
+    properties:
+      name: topic-((topic))
+  - name: delete-topic
+    release: kafka
+    consumes:
+      zookeeper: {from: conn, deployment: zookeeper}
+    properties:
+      name: topic-((topic))
+  vm_type: default
+  stemcell: default
+  networks:
+  - name: default
+
+variables:
+- name: topic
+  type: password # todo ideally uuid

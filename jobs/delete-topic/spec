@@ -1,8 +1,8 @@
 ---
-name: kafka-topic
+name: delete-topic
 
 templates:
-  post-start: bin/post-start
+  run: bin/run
 
 consumes:
 - name: zookeeper
@@ -10,6 +10,7 @@ consumes:
 
 packages:
 - kafka
+- openjdk-1.8
 
 properties:
   name:

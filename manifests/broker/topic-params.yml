@@ -1,0 +1,13 @@
+- name: partitions
+  type: integer
+  ops:
+  - type: replace
+    path: /instance_groups/name=topic/jobs/name=create-topic/properties/partitions?
+    value: ((value))
+
+- name: replication-factor
+  type: integer
+  ops:
+  - type: replace
+    path: /instance_groups/name=topic/jobs/name=create-topic/properties/replication_factor?
+    value: ((value))

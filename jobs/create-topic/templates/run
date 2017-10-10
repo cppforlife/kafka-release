@@ -1,0 +1,16 @@
+#!/bin/bash
+
+set -e
+
+<% zk = link("zookeeper") %>
+
+source /var/vcap/packages/openjdk-1.8/bosh/runtime.env
+
+/var/vcap/packages/kafka/bin/kafka-topics.sh --create \
+  --zookeeper "<%= zk.instances.map { |i| "#{i.address}:#{zk.p("client_port")}" }.join(",") %>" \
+  --replication-factor <%= p("replication_factor") %> \
+  --partitions <%= p("partitions") %> \
+  --topic <%= p("name") %> \
+  --if-not-exists 1>&2 # todo idempotent
+
+echo "{\"name\": \"<%= p("name") %>\"}" # todo json.dump

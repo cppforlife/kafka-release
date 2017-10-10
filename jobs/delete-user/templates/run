@@ -1,0 +1,16 @@
+#!/bin/bash
+
+set -e
+
+<% zk = link("zookeeper") %>
+
+source /var/vcap/packages/openjdk-1.8/bosh/runtime.env
+
+/var/vcap/packages/kafka/bin/kafka-acls.sh \
+  --authorizer kafka.security.auth.SimpleAclAuthorizer \
+  --authorizer-properties zookeeper.connect="<%= zk.instances.map { |i| "#{i.address}:#{zk.p("client_port")}" }.join(",") %>" \
+  --remove \
+  --allow-principal User:CN:<%= p("user") %> \
+  --operation All \
+  --topic <%= p("topic") %> \
+  --force
