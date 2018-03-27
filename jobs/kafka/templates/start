@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source /var/vcap/packages/openjdk-1.8/bosh/runtime.env
+source /var/vcap/packages/openjdk-8/bosh/runtime.env
 
 exec /var/vcap/packages/kafka/bin/kafka-server-start.sh \
   /var/vcap/jobs/kafka/config/server.properties

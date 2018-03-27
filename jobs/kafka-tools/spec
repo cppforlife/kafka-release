@@ -17,6 +17,6 @@ consumes:
 
 packages:
 - kafka
-- openjdk-1.8
+- openjdk-8
 
 properties: {}

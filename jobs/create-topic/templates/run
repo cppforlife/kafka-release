@@ -4,7 +4,7 @@ set -e
 
 <% zk = link("zookeeper") %>
 
-source /var/vcap/packages/openjdk-1.8/bosh/runtime.env
+source /var/vcap/packages/openjdk-8/bosh/runtime.env
 
 /var/vcap/packages/kafka/bin/kafka-topics.sh --create \
   --zookeeper "<%= zk.instances.map { |i| "#{i.address}:#{zk.p("client_port")}" }.join(",") %>" \
