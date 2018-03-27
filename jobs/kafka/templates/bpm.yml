@@ -1,8 +1,9 @@
 processes:
-  kafka:
-    executable: /var/vcap/jobs/kafka/bin/start
-    limits:
-      open_file: 100000
-    env:
-    - KAFKA_LOG4J_OPTS=-Dlog4j.configuration=file:///var/vcap/jobs/kafka/config/log4j.properties
-    - KAFKA_HEAP_OPTS=<%= p("heap_opts") %>
+- name: kafka
+  executable: /var/vcap/jobs/kafka/bin/start
+  persistent_disk: true
+  limits:
+    open_file: 100000
+  env:
+    KAFKA_LOG4J_OPTS: "-Dlog4j.configuration=file:///var/vcap/jobs/kafka/config/log4j.properties"
+    KAFKA_HEAP_OPTS: "<%= p("heap_opts") %>"
