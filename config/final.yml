@@ -1,5 +1,5 @@
 name: kafka
 blobstore:
-  provider: local
+  provider: s3
   options:
-    blobstore_path: /tmp/kafka-blobs
+    bucket_name: cppforlife-kafka-blobs
