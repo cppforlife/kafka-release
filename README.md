@@ -1,8 +1,9 @@
-# kafka-release
+# Kafka BOSH release
 
 ```
 $ # ... deploy zookeeper
-$ bosh -d kafka deploy manifests/example.yml
+$ bosh -d kafka deploy manifests/example.yml -o manifests/dev.yml
+$ bosh -d kafka run-errand smoke-tests
 ```
 
 - https://kafka.apache.org/quickstart
