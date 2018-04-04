@@ -1,0 +1,48 @@
+name: kafka
+version: 0.0.2
+commit_hash: dcbc2bf
+uncommitted_changes: false
+jobs:
+- name: create-topic
+  version: e96cb365c4a583e55357c3904d093efec25dd01b
+  fingerprint: e96cb365c4a583e55357c3904d093efec25dd01b
+  sha1: 5ad86e0fc99ec7e9c00700fabfd0477e144b0aa7
+- name: create-user
+  version: 8db52fc5b95e66554620bab856d199f0569538f2
+  fingerprint: 8db52fc5b95e66554620bab856d199f0569538f2
+  sha1: acdcabf44e95693bcf8d6f1e9bddab3a527f9299
+- name: delete-topic
+  version: e365911f321284815b06f18864b00a7b5016c76f
+  fingerprint: e365911f321284815b06f18864b00a7b5016c76f
+  sha1: c0ae04b9a86a0096d6232b7a7bdd491bc4e8d1c5
+- name: delete-user
+  version: c8438e42a36186318495934acc6168735061056b
+  fingerprint: c8438e42a36186318495934acc6168735061056b
+  sha1: e447a1cb46491e1a175e5f923f7d9078a03e61af
+- name: kafka
+  version: a301b3e5ea0214a0ee7d16ef843b36a658646601
+  fingerprint: a301b3e5ea0214a0ee7d16ef843b36a658646601
+  sha1: 12a0b583a76a3b95e878c1ca31a54e4960df3633
+- name: kafka-tools
+  version: fd35a06ee469b3d9026c22580fa908ab410e1351
+  fingerprint: fd35a06ee469b3d9026c22580fa908ab410e1351
+  sha1: 44887f793f68dfaf2e6e2bd9b9eb44cc0894712b
+- name: smoke-tests
+  version: 5c6a36ddce177e19f5a2ac4f62912f0e23eaf53a
+  fingerprint: 5c6a36ddce177e19f5a2ac4f62912f0e23eaf53a
+  sha1: cfc7b0a0f662727d25a8d6828406b7f93434db83
+packages:
+- name: kafka
+  version: 5d7d9f18829dd467f769936f024d172ab490bf9c
+  fingerprint: 5d7d9f18829dd467f769936f024d172ab490bf9c
+  sha1: 58c00246733b37d1a13f6c559300ee6f0793ec31
+  dependencies: []
+- name: openjdk-8
+  version: 5e72bbc5151b0248ff5925636fdd7d328f7dea20
+  fingerprint: 5e72bbc5151b0248ff5925636fdd7d328f7dea20
+  sha1: af22f95eede2918259e6337a0a1be86cfeb6a32a
+  dependencies: []
+license:
+  version: 82f6518b94e46cc3f6fc883db3e14f14c3802762
+  fingerprint: 82f6518b94e46cc3f6fc883db3e14f14c3802762
+  sha1: 1bcf5e26ecb1578bc6f443b7b270876d5a781dff
