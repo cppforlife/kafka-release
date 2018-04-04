@@ -3,7 +3,7 @@ name: kafka
 
 releases:
 - name: kafka
-  version: 0.0.1
+  version: 0.0.2
   url: git+https://github.com/cppforlife/kafka-release
 - name: bpm
   version: 0.5.0
