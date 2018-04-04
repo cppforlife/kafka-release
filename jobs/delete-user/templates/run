@@ -10,7 +10,7 @@ source /var/vcap/packages/openjdk-8/bosh/runtime.env
   --authorizer kafka.security.auth.SimpleAclAuthorizer \
   --authorizer-properties zookeeper.connect="<%= zk.instances.map { |i| "#{i.address}:#{zk.p("client_port")}" }.join(",") %>" \
   --remove \
-  --allow-principal User:CN:<%= p("user") %> \
+  --allow-principal User:CN:<%= p("name") %> \
   --operation All \
-  --topic <%= p("topic") %> \
+  --topic <%= link("topic").p("name") %> \
   --force

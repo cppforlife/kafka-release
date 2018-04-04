@@ -11,6 +11,8 @@ consumes:
 provides:
 - name: topic
   type: kafka-topic
+  properties:
+  - name
 
 packages:
 - kafka

@@ -3,7 +3,7 @@ name: kafka-topic
 
 releases:
 - name: kafka
-  version: 0.0.2
+  version: 0.0.1+dev.4
   url: git+https://github.com/cppforlife/kafka-release
 
 stemcells:
@@ -21,6 +21,7 @@ instance_groups:
 - name: topic
   azs: [z1, z2, z3]
   instances: 1
+  lifecycle: errand
   jobs:
   - name: create-topic
     release: kafka

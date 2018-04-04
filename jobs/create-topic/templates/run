@@ -13,4 +13,10 @@ source /var/vcap/packages/openjdk-8/bosh/runtime.env
   --topic <%= p("name") %> \
   --if-not-exists 1>&2 # todo idempotent
 
-echo "{\"name\": \"<%= p("name") %>\"}" # todo json.dump
+echo '<%=
+
+JSON.dump(
+  "name" => p("name"),
+)
+
+%>'

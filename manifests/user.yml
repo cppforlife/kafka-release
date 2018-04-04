@@ -3,7 +3,7 @@ name: kafka-user
 
 releases:
 - name: kafka
-  version: 0.0.2
+  version: 0.0.1+dev.4
   url: git+https://github.com/cppforlife/kafka-release
 
 stemcells:
@@ -21,17 +21,20 @@ instance_groups:
 - name: user
   azs: [z1, z2, z3]
   instances: 1
+  lifecycle: errand
   jobs:
   - name: create-user
     release: kafka
     consumes:
       zookeeper: {from: conn, deployment: zookeeper}
+      topic: {from: topic, deployment: ((si_deployment_name))}
     properties:
       name: user-((user))
   - name: delete-user
     release: kafka
     consumes:
       zookeeper: {from: conn, deployment: zookeeper}
+      topic: {from: topic, deployment: ((si_deployment_name))}
     properties:
       name: user-((user))
   vm_type: default

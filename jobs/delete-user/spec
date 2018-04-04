@@ -7,13 +7,13 @@ templates:
 consumes:
 - name: zookeeper
   type: zookeeper
+- name: topic
+  type: kafka-topic
 
 packages:
 - kafka
 - openjdk-8
 
 properties:
-  user:
+  name:
     description: "User as specified via CN"
-  topic:
-    description: "Topic for authorization"

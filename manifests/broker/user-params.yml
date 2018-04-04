@@ -1,6 +1,0 @@
-- name: consumer
-  type: boolean
-  ops:
-  - type: replace
-    path: /instance_groups/name=topic/jobs/name=create-user/properties/consumer?
-    value: ((value))
